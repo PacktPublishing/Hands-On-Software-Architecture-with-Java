@@ -1,0 +1,4 @@
+it/test/rest/RestApplication.class
+it/test/model/PaymentRepository.class
+it/test/model/Payment.class
+it/test/rest/PaymentResource.class
