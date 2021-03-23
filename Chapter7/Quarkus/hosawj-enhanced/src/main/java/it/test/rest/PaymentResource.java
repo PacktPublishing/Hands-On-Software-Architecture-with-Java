@@ -1,5 +1,4 @@
 package it.test.rest;
-import javax.ejb.Stateless;
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -23,6 +22,11 @@ public class PaymentResource {
     @Inject
     PaymentRepository repository;
 
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    public String hello() {
+        return "hello";
+    }
 
     @GET
     @Path("/find/{id}")

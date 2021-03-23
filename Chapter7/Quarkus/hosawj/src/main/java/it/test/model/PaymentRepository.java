@@ -2,16 +2,17 @@ package it.test.model;
 
 import java.util.logging.Logger;
 
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
-
+@ApplicationScoped
 public class PaymentRepository {
    
     private Logger log =   Logger.getLogger(this.getClass().getName());
 
-    @PersistenceContext(unitName = "hosawjPersistenceUnit")
+    @PersistenceContext
     private EntityManager em;
 
     @Transactional

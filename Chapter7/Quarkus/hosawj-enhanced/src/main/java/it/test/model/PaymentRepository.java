@@ -2,29 +2,29 @@ package it.test.model;
 
 import java.util.logging.Logger;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 
+import io.quarkus.hibernate.orm.panache.PanacheRepository;
 
-public class PaymentRepository {
+@ApplicationScoped
+public class PaymentRepository implements PanacheRepository<Payment>{
    
     private Logger log =   Logger.getLogger(this.getClass().getName());
-
-    @PersistenceContext(unitName = "hosawjPersistenceUnit")
-    private EntityManager em;
 
     @Transactional
     public Payment create(Payment payment)
     {
         log.info("Persisting " + payment );
-        em.persist(payment);
+        persist(payment);
         return payment;
     }
+    
     public Payment find(String id)
     {
         log.info("Looking for " + id );
-        Payment payment=em.find(Payment.class, id);
+        
+        Payment payment=find("id", id).firstResult();
         log.info("Found " + payment );
         return payment;
     }
