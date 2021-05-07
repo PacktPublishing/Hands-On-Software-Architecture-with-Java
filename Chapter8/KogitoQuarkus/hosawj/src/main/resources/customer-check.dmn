@@ -1,0 +1,64 @@
+<dmn:definitions xmlns:dmn="http://www.omg.org/spec/DMN/20180521/MODEL/" xmlns="it.test" xmlns:feel="http://www.omg.org/spec/DMN/20180521/FEEL/" xmlns:kie="http://www.drools.org/kie/dmn/1.2" xmlns:dmndi="http://www.omg.org/spec/DMN/20180521/DMNDI/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" id="_AD9222EB-2AE2-4F13-BA0F-50FB1638A287" name="customer-check" typeLanguage="http://www.omg.org/spec/DMN/20180521/FEEL/" namespace="it.test">
+  <dmn:extensionElements/>
+  <dmn:itemDefinition id="_593C84BD-C79A-4CDB-9273-4D6141400114" name="customer" isCollection="false">
+    <dmn:itemComponent id="_4FD549A4-C947-40BB-B1D7-C9E37EB0B6A1" name="name" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_5B0B4FCE-F3F0-4DC6-AB87-17F19F7E7096" name="surname" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_D6839544-876E-4014-A13A-D2F22B858FD0" name="taxCode" isCollection="false">
+      <dmn:typeRef>string</dmn:typeRef>
+    </dmn:itemComponent>
+    <dmn:itemComponent id="_56DE4DCE-7A17-438A-ABA4-70E11FB07460" name="age" isCollection="false">
+      <dmn:typeRef>number</dmn:typeRef>
+    </dmn:itemComponent>
+  </dmn:itemDefinition>
+  <dmn:inputData id="_64450C5A-E6CF-4100-BA50-4DE7A8F171B3" name="customer">
+    <dmn:extensionElements/>
+    <dmn:variable id="_64C971DC-2B1A-450D-B0F0-DF49CB1F83F9" name="customer" typeRef="customer"/>
+  </dmn:inputData>
+  <dmn:decision id="_F9DA0BD2-F9A7-4908-8E0B-96C9A0B5C05D" name="CheckAge">
+    <dmn:extensionElements/>
+    <dmn:variable id="_14B92005-B4C2-4D78-822D-BF67AC01E6A6" name="CheckAge" typeRef="customer"/>
+    <dmn:informationRequirement id="_DF265602-A982-411E-A734-83EA693A93D9">
+      <dmn:requiredInput href="#_64450C5A-E6CF-4100-BA50-4DE7A8F171B3"/>
+    </dmn:informationRequirement>
+    <dmn:literalExpression id="_3D16A302-397D-4E39-BC02-98678CE27984">
+      <dmn:text>if customer.age &gt;= 16 then "VALID" else "INVALID"</dmn:text>
+    </dmn:literalExpression>
+  </dmn:decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram id="_84182A65-E211-4E4F-A9FA-D17836543EBE" name="DRG">
+      <di:extension>
+        <kie:ComponentsWidthsExtension>
+          <kie:ComponentWidths dmnElementRef="_3D16A302-397D-4E39-BC02-98678CE27984">
+            <kie:width>598</kie:width>
+          </kie:ComponentWidths>
+        </kie:ComponentsWidthsExtension>
+      </di:extension>
+      <dmndi:DMNShape id="dmnshape-drg-_64450C5A-E6CF-4100-BA50-4DE7A8F171B3" dmnElementRef="_64450C5A-E6CF-4100-BA50-4DE7A8F171B3" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="236" y="221" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="dmnshape-drg-_F9DA0BD2-F9A7-4908-8E0B-96C9A0B5C05D" dmnElementRef="_F9DA0BD2-F9A7-4908-8E0B-96C9A0B5C05D" isCollapsed="false">
+        <dmndi:DMNStyle>
+          <dmndi:FillColor red="255" green="255" blue="255"/>
+          <dmndi:StrokeColor red="0" green="0" blue="0"/>
+          <dmndi:FontColor red="0" green="0" blue="0"/>
+        </dmndi:DMNStyle>
+        <dc:Bounds x="236" y="100" width="100" height="50"/>
+        <dmndi:DMNLabel/>
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="dmnedge-drg-_DF265602-A982-411E-A734-83EA693A93D9" dmnElementRef="_DF265602-A982-411E-A734-83EA693A93D9">
+        <di:waypoint x="286" y="246"/>
+        <di:waypoint x="286" y="150"/>
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</dmn:definitions>

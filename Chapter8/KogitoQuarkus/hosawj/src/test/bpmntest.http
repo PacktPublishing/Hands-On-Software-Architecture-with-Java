@@ -1,0 +1,11 @@
+POST http://localhost:8080/customer_onboarding HTTP/1.1
+content-type: application/json
+
+{
+    "customer":{
+        "name":"Giuseppe",
+        "surname":"Bonocore",
+        "age":37,
+        "taxCode":"dads213213fasfasf"
+    }
+}

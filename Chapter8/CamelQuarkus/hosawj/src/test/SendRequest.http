@@ -1,0 +1,12 @@
+POST http://127.0.0.1:8080/camel/settlement HTTP/1.1
+content-type: application/json
+
+{
+    "id":"1ef43029-f1eb-4dd8-85c4-1c332b69173c", 
+    "date":1616504158091, 
+    "currency":"EUR", 
+    "sender":"giuseppe@test.it", 
+    "recipient":"stefano@domain.com", 
+    "signature":"169e8dbf-90b0-4b45-b0f9-97789d66dee7", 
+    "amount":10.0
+}
