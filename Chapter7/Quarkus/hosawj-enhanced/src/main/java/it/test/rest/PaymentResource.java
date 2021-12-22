@@ -1,4 +1,6 @@
 package it.test.rest;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -29,12 +31,22 @@ public class PaymentResource {
     }
 
     @GET
+    @Path("/list/")
+    public Response listAll() {
+        List<Payment> payments=repository.listAll();
+        if(payments==null)
+            throw new WebApplicationException(Response.Status.NOT_FOUND);
+        else
+         return Response.ok(payments).build();
+    }
+
+    @GET
     @Path("/find/{id}")
     public Response find(@PathParam("id") String id) {
         Payment payment=repository.find(id);
         if(payment==null)
             throw new WebApplicationException(Response.Status.NOT_FOUND);
-        else    
+        else
          return Response.ok(payment).build();
     }
 /*

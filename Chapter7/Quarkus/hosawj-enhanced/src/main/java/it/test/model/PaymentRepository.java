@@ -1,5 +1,6 @@
 package it.test.model;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -27,6 +28,12 @@ public class PaymentRepository implements PanacheRepository<Payment>{
         Payment payment=find("id", id).firstResult();
         log.info("Found " + payment );
         return payment;
+    }
+    public List<Payment> listAll()
+    {
+        List<Payment> payments=listAll();
+        log.info("Found " + payments );
+        return payments;
     }
 
 }
